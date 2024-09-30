@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Prediction</title>
+</head>
+<body>
+
+    <style>
+        .navbar {
+            background-color: orange;
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100px;
+            text-align: center;
+        }
+
+        .navbar h1 {
+            margin: 20px;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .laptop_price_form {
+            margin: 20px;
+        }
+
+        .price-form-box {
+          
+            padding: 20px;
+        }
+
+        .result-box {
+            margin-top: 20px;
+            background-color: lightgreen;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        label {
+            padding-right: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        input {
+            width: 200px;
+            height: 20px;
+            box-shadow: 1px 1px 1px 1px;
+            border: none;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            background-color: orange;
+            border: none;
+            box-shadow: 1px 1px 1px;
+        }
+    </style>
+
+    <div class="navbar">
+        <h1>Laptop Price Prediction</h1>
+    </div>
+
+    <div class="price-form-box">
+        <form method="POST" action="/predict" class="laptop_price_form">
+            <label for="company">Company:</label>
+            <input type="text" id="company" name="Company" required><br><br>
+    
+            <label for="typeName">TypeName:</label>
+            <input type="text" id="typeName" name="TypeName" required><br><br>
+    
+            <label for="ram">Ram (GB):</label>
+            <input type="number" id="ram" name="Ram" required><br><br>
+    
+            <label for="opSys">Operating System:</label>
+            <input type="text" id="opSys" name="OpSys" required><br><br>
+    
+            <label for="weight">Weight (kg):</label>
+            <input type="number" step="0.01" id="weight" name="Weight" required><br><br>
+    
+            <label for="touchscreen">Touchscreen (1 for Yes, 0 for No):</label>
+            <input type="number" id="touchscreen" name="Touchscreen" required><br><br>
+    
+            <label for="ips">IPS (1 for Yes, 0 for No):</label>
+            <input type="number" id="ips" name="IPS" required><br><br>
+    
+            <label for="ppi">PPI:</label>
+            <input type="number" id="ppi" name="PPI" step="0.01" required><br><br>
+    
+            <label for="cpu_name">CPU Name:</label>
+            <input type="text" id="cpu" name="cpu_name" required><br><br>
+    
+            <label for="memory">Memory:</label>
+            <input type="text" id="memory_id" name="memory" required><br><br>
+    
+            <label for="ssd">SSD (GB):</label>
+            <input type="number" id="ssd_id" name="SSD" required><br><br>
+    
+            <label for="gpu_brand">GPU Brand:</label>
+            <input type="text" id="gpu_brand" name="Gpu_brand" required><br><br>
+    
+            <button type="submit">Predict Price</button>
+        </form>
+    </div>
+
+    {% if predicted_price %}
+    <div class="result-box">
+        <h2>Predicted Laptop Price: {{ predicted_price }}/-</h2>
+    </div>
+    {% endif %}
+
+</body>
+</html>
